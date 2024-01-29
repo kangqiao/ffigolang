@@ -21,6 +21,18 @@ This template uses the following structure:
 * platform folders (`android`, `ios`, `windows`, etc.): Contains the build files
   for building and bundling the native code library with the platform application.
 
+## How to run 
+```
+# edit go code.
+cd src
+make android-arm64
+make ios
+cd ..
+flutter pub run ffigen --config ffigen.yaml
+# Integrating generated_bindings code
+# run flutter example
+```
+
 ## Building and bundling native code
 
 The `pubspec.yaml` specifies FFI plugins as follows:
