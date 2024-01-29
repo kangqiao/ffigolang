@@ -1,10 +1,9 @@
-
 import 'dart:async';
 import 'dart:ffi';
 import 'dart:io';
 import 'dart:isolate';
 
-import 'native_add_bindings_generated.dart';
+import 'generated_bindings.dart';
 
 /// A very short-lived native function.
 ///
@@ -33,7 +32,7 @@ Future<int> sumAsync(int a, int b) async {
   return completer.future;
 }
 
-const String _libName = 'native_add';
+const String _libName = 'sum';
 
 /// The dynamic library in which the symbols for [NativeAddBindings] can be found.
 final DynamicLibrary _dylib = () {
@@ -51,7 +50,6 @@ final DynamicLibrary _dylib = () {
 
 /// The bindings to the native functions in [_dylib].
 final NativeAddBindings _bindings = NativeAddBindings(_dylib);
-
 
 /// A request to compute `sum`.
 ///
